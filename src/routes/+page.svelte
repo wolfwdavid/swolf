@@ -199,4 +199,39 @@
 		background-color: #e6b8ee;
 		border-radius: 5px;
 	}
+
+	 /* Logo Text and Tagline Styles */
+	 .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .logo-text {
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        font-size: 48px;
+        color: #5f5fff; /* Soft purple to match the image's vibe */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow effect for the logo text */
+    }
+
+    .tagline {
+        font-family: 'Arial', sans-serif;
+        font-size: 18px;
+        color: #7f7f7f; /* Soft grayish color */
+        font-style: italic;
+        margin-top: 10px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Soft shadow for the tagline */
+    }
+
+    /* Styled line */
+    .styled-line {
+        border: 0;
+        border-top: 2px solid #e6b8ee;
+        margin: 20px 0;
+        width: 80%;
+    }
 </style>
