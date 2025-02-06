@@ -5,17 +5,17 @@ const dev = process.argv.includes('dev');
 export default {
   kit: {
     adapter: adapter({
-      pages: 'build', // The folder to store the built pages
-      assets: 'build', // The folder for static assets like images, fonts, etc.
+      pages: 'build', // Folder for the built pages
+      assets: 'build', // Folder for static assets like images, fonts, etc.
       fallback: 'index.html', // Ensures correct routing on GitHub Pages (SPA fallback)
     }),
     paths: {
-      base: dev ? "" : "/swolf", // Fixes navigation issues in GitHub Pages
+      base: dev ? "" : "/swolf", // Sets the base path for GitHub Pages
     },
-    appDir: "app", // Prevents asset loading issues; only necessary if you see problems
+    // appDir: "app", // This is usually optional, only necessary if you're facing issues
     prerender: {
-      handleHttpError: "warn", // Prevents 404 errors from stopping the build
-      entries: ["*"], // Ensures all pages are prerendered
+      handleHttpError: "warn", // Prevents build failures due to 404s
+      entries: ["*"], // Prerenders all routes
     },
   }
 };
