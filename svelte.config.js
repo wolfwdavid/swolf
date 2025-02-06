@@ -1,18 +1,21 @@
 import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
+const dev = process.argv.includes('dev');
 
-	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
-	}
-};
-
-export default config;
+export default {
+  kit: {
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: 'index.html', // Ensures correct routing on GitHub Pages
+    }),
+    paths: {
+      base: dev ? "" : "/snowwolf", // ✅ Fixes navigation issues in GitHub Pages
+    },
+    appDir: "app", // ✅ Prevents asset loading issues
+    prerender: {
+      handleHttpError: "warn", // ✅ Prevents 404 errors from stopping the build
+      entries: ["*"], // ✅ Ensures all pages are prerendered
+    },
+  }
+}; 
