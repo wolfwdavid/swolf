@@ -23,7 +23,7 @@ jobs:
 
       - name: Build the site
         env:
-          BASE_PATH: '/snowwolf'  # Ensure this matches your GitHub repo name
+          BASE_PATH: '/swolf'  # Ensure this matches your GitHub repo name
         run: npm run build
 
       - name: Upload Artifacts
@@ -41,7 +41,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: https://wolfwdavid.github.io/snowwolf/  # Ensure this matches your GitHub Pages URL
+      url: https://wolfwdavid.github.io/swolf/  # Ensure this matches your GitHub Pages URL
 
     steps:
       - name: Deploy to GitHub Pages
